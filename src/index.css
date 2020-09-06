@@ -2,8 +2,7 @@
 
 @tailwind components;
 
-@tailwind utilities;
-
+/*------------------------ Loader.js ----------------------------*/
 .sk-folding-cube {
   margin: 20px auto;
   width: 40px;
@@ -101,3 +100,31 @@
     opacity: 0;
   }
 }
+/*------------------------------------------------------------*/
+
+.text-field {
+  @apply appearance-none;
+  @apply block;
+  @apply w-full;
+  @apply bg-gray-200;
+  @apply text-gray-700;
+  @apply border;
+  @apply border-gray-200;
+  @apply rounded;
+  @apply py-3;
+  @apply px-4;
+  @apply mb-3;
+  @apply leading-tight;
+}
+
+.input__label {
+  @apply block;
+  @apply uppercase;
+  @apply tracking-wide;
+  @apply text-gray-700;
+  @apply text-xs;
+  @apply font-bold;
+  @apply mb-2;
+}
+
+@tailwind utilities;
