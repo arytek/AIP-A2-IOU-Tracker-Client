@@ -5,6 +5,7 @@ import Footer from "./Components/Footer";
 import Home from "./Views/Home";
 import About from "./Views/About";
 import Product from "./Views/Product";
+import SignUpFormContainer from "./Components/SignUpFormContainer/SignUpFormContainer";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route path="/products/:id">
               <Product />
+            </Route>
+            <Route path="/signup">
+              <SignUpFormContainer />
             </Route>
           </Switch>
         </div>
