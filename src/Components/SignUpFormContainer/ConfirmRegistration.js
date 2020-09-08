@@ -5,10 +5,11 @@ function ConfirmRegistration(props) {
   return (
     <div>
       <form
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={(event) => {
           event.preventDefault();
-          props.confirmUser(confirmationCode);
+          if (confirmationCode) {
+            props.confirmUser(confirmationCode);
+          }
         }}
       >
         <h1 className="font-sans text-3xl text-gray-800 text-left mb-4">
@@ -20,16 +21,17 @@ function ConfirmRegistration(props) {
           Enter the six digit code below.
         </p>
 
-        <label className="input__label">Verification code:</label>
+        <label className="form__label">Verification code:</label>
         <input
-          className="text-field focus:outline-none focus:bg-white"
+          className="text-field"
           value={confirmationCode}
           onChange={(event) => setConfirmationCode(event.target.value)}
+          required
         />
 
         <div className="flex justify-around mt-6">
           <button
-            className="align-center shadow center bg-gray-700 hover:bg-gray-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className="form__button form__button--secondary"
             type="button"
             onClick={(event) => {
               props.back({ state: 'notRegistered' });
@@ -38,10 +40,7 @@ function ConfirmRegistration(props) {
             Back
           </button>
 
-          <button
-            className="align-center shadow center bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-            type="submit"
-          >
+          <button className="form__button form__button--primary" type="submit">
             Signup
           </button>
         </div>

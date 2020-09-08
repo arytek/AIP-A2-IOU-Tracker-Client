@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SignUp from './SignUp';
 import UserPool from '../../Utility/UserPool';
 import ConfirmRegistration from './ConfirmRegistration';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function SignUpFormContainer() {
-  // const [goBack, setGoBack] = useState(false);
   const [signUpStep, setSignUpStep] = useState({
     state: 'notRegistered',
     params: {},
   });
+  let [errorMessage, setErrorMessage] = useState('');
 
+  let history = useHistory();
   let content = null;
+
+  useEffect(() => {
+    setErrorMessage('');
+  }, [signUpStep]);
 
   const signUpUser = (name, username, email, password) => {
     const userAttributes = [
@@ -32,36 +37,34 @@ function SignUpFormContainer() {
           params: { cognitoUser: data.user },
         });
       } else if (err) {
-        content = (
-          <p>An error has occured. Please refresh or try again later.</p>
+        setErrorMessage(
+          'An error has occured. Please refresh or try again later.'
         );
       }
     });
   };
 
   const confirmUser = (confirmationCode) => {
-    if (signUpStep.params.cognitoUser) {
-      signUpStep.params.cognitoUser.confirmRegistration(
-        confirmationCode,
-        false,
-        (err, data) => {
-          if (data) {
-            setSignUpStep({ state: 'confirmed' });
-          } else if (err) {
-            content = (
-              <p>An error has occured. Please refresh or try again later.</p>
-            );
-          }
+    let cognitoUser = signUpStep.params.cognitoUser;
+    if (cognitoUser) {
+      cognitoUser.confirmRegistration(confirmationCode, false, (err, data) => {
+        if (data) {
+          setSignUpStep({ state: 'confirmed' });
+        } else if (err) {
+          setErrorMessage(
+            'An error has occured. Please refresh or try again later.'
+          );
         }
-      );
+      });
     } else {
-      content = <p>An error has occured. Please refresh or try again later.</p>;
+      setErrorMessage(
+        'An error has occured. Please refresh or try again later.'
+      );
     }
   };
 
   switch (signUpStep.state) {
     case 'notRegistered':
-      console.log('HERE!!');
       content = <SignUp signUpUser={signUpUser} />;
       break;
 
@@ -72,11 +75,19 @@ function SignUpFormContainer() {
       break;
 
     case 'confirmed':
+      history.push('/');
       break;
     default:
   }
 
-  return <div className="mx-auto w-full max-w-lg">{content}</div>;
+  return (
+    <div className="mx-auto w-full max-w-lg">
+      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        {content}
+        <p>{errorMessage}</p>
+      </div>
+    </div>
+  );
 }
 
 export default SignUpFormContainer;
