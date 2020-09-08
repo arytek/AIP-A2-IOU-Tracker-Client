@@ -2,6 +2,8 @@
 
 @tailwind components;
 
+@tailwind utilities;
+
 /*------------------------ Loader.js ----------------------------*/
 .sk-folding-cube {
   margin: 20px auto;
@@ -22,7 +24,7 @@
   transform: scale(1.1);
 }
 .sk-folding-cube .sk-cube:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -117,7 +119,12 @@
   @apply leading-tight;
 }
 
-.input__label {
+.text-field:focus {
+  @apply outline-none;
+  @apply bg-white;
+}
+
+.form__label {
   @apply block;
   @apply uppercase;
   @apply tracking-wide;
@@ -127,4 +134,28 @@
   @apply mb-2;
 }
 
-@tailwind utilities;
+.form__button {
+  @apply text-center;
+  @apply shadow;
+  @apply text-white;
+  @apply font-bold;
+  @apply py-2;
+  @apply px-4;
+  @apply rounded;
+}
+
+.form__button--primary {
+  @apply bg-purple-500;
+}
+
+.form__button--primary:hover {
+  @apply bg-purple-400;
+}
+
+.form__button--secondary {
+  @apply bg-gray-700;
+}
+
+.form__button--secondary:hover {
+  @apply bg-gray-600;
+}
