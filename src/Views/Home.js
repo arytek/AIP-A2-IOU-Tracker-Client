@@ -27,7 +27,7 @@ function Home() {
   }
 
   return (
-    <div>
+    <div className="mx-auto w-2/4">
       <h1 className="font-bold text-2x1 mb-3">Best Sellers</h1>
       {content}
     </div>
