@@ -81,11 +81,9 @@ function SignUpFormContainer() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-lg">
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        {content}
-        <p>{errorMessage}</p>
-      </div>
+    <div className="mx-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      {content}
+      <p className="text-center mt-4">{errorMessage}</p>
     </div>
   );
 }
