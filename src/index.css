@@ -159,3 +159,13 @@
 .form__button--secondary:hover {
   @apply bg-gray-600;
 }
+
+.overlay--black {
+  @apply bg-black-t-50;
+  @apply fixed;
+  @apply top-0;
+  @apply left-0;
+  @apply w-full;
+  @apply h-full;
+  @apply z-50;
+}

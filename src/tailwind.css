@@ -18814,6 +18814,16 @@ video {
   background-color: rgba(113, 128, 150, var(--bg-opacity));
 }
 
+.overlay--black {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
