@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 function ConfirmRegistration(props) {
   const [confirmationCode, setConfirmationCode] = useState('');
 
