@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 function SignUp(props) {
   const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,7 +10,7 @@ function SignUp(props) {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          props.signUpUser(name, username, email, password);
+          props.signUpUser(name, email, password);
         }}
       >
         <h1 className="font-sans text-3xl text-gray-800 text-left mb-4">
@@ -23,14 +22,6 @@ function SignUp(props) {
           className="text-field focus:outline-none focus:bg-white"
           value={name}
           onChange={(event) => setName(event.target.value)}
-          required
-        />
-
-        <label className="form__label">Username</label>
-        <input
-          className="text-field focus:outline-none focus:bg-white"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
           required
         />
 
