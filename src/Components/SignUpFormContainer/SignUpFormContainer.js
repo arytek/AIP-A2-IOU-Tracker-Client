@@ -7,17 +7,25 @@ import SignUp from './SignUp';
 import ConfirmRegistration from './ConfirmRegistration';
 import ChooseUsername from './ChooseUsername';
 
-import { useHistory } from 'react-router-dom';
-
+/**
+ * Component for rendering the sign up form. Handles sign up UI flow.
+ *
+ * First signs up the user, then saves the user's username and password
+ * in memory temporarily to enable automatic login after user chooses
+ * their username. After confirming user's email address, authenticates
+ * user using saved username and password attributes in signUpStep state.
+ * Finally allows user to choose a username.
+ */
 function SignUpFormContainer() {
   const [signUpStep, setSignUpStep] = useState({
     state: 'notRegistered',
-    params: { cognitoUser: null },
+    params: { username: null, password: null },
   });
   let [errorMessage, setErrorMessage] = useState('');
 
-  let history = useHistory();
-  const { authenticate } = useContext(AccountContext);
+  const { authenticate, getCognitoUser, getSession } = useContext(
+    AccountContext
+  );
 
   let content = null;
 
@@ -42,7 +50,6 @@ function SignUpFormContainer() {
         setSignUpStep({
           state: 'registered',
           params: {
-            cognitoUser: data.user,
             username: username,
             password: password,
           },
@@ -55,8 +62,8 @@ function SignUpFormContainer() {
     });
   };
 
-  const confirmUser = (confirmationCode) => {
-    let cognitoUser = signUpStep.params.cognitoUser;
+  const confirmUser = async (confirmationCode) => {
+    const cognitoUser = await getCognitoUser(signUpStep.params.username);
     if (cognitoUser) {
       cognitoUser.confirmRegistration(confirmationCode, false, (err, data) => {
         if (data) {
@@ -67,13 +74,9 @@ function SignUpFormContainer() {
             .catch((err) => {
               console.error('Failed to login!', err);
             });
-
           setSignUpStep({
             ...signUpStep,
             state: 'confirmed',
-            params: {
-              cognitoUser: signUpStep.params.cognitoUser,
-            },
           });
         } else if (err) {
           setErrorMessage(
@@ -89,30 +92,31 @@ function SignUpFormContainer() {
   };
 
   const setUsername = (username) => {
-    console.log('signUpStep:', signUpStep);
-    let cognitoUser = signUpStep.params.cognitoUser;
-    if (cognitoUser) {
-      const userAttributes = [
-        {
-          Name: 'preferred_username',
-          Value: username,
-        },
-      ];
-      cognitoUser.updateAttributes(userAttributes, (err, data) => {
-        console.log('confirmation: ', err, data);
-        if (data) {
-          setSignUpStep({ state: 'choseUsername' });
-        } else if (err) {
-          setErrorMessage(
-            'An error has occured. Please refresh or try again later.'
-          );
-        }
+    getSession()
+      .then(({ user }) => {
+        const userAttributes = [
+          {
+            Name: 'preferred_username',
+            Value: username,
+          },
+        ];
+        user.updateAttributes(userAttributes, (err, data) => {
+          console.log('confirmation: ', err, data);
+          if (data) {
+            setSignUpStep({ state: 'choseUsername' });
+          } else if (err) {
+            setErrorMessage(
+              'An error has occured. Please refresh or try again later.'
+            );
+          }
+        });
+        setErrorMessage(
+          'An error has occured. Please refresh or try again later.'
+        );
+      })
+      .catch((err) => {
+        console.error(err);
       });
-    } else {
-      setErrorMessage(
-        'An error has occured. Please refresh or try again later.'
-      );
-    }
   };
 
   switch (signUpStep.state) {
@@ -131,7 +135,7 @@ function SignUpFormContainer() {
       break;
 
     case 'choseUsername':
-      history.push('/');
+      window.location.href = '/';
       break;
     default:
   }
