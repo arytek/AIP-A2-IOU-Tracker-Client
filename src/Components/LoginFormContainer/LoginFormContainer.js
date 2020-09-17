@@ -1,34 +1,21 @@
-import React, { useState } from 'react';
-import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
-import UserPool from '../../Utility/UserPool';
+import React, { useState, useContext } from 'react';
 import { useTransition, animated } from 'react-spring';
 import Login from './Login';
+import { AccountContext } from '../../Contexts/Accounts';
 
 function LoginFormContainer() {
   const [showForm, setShowForm] = useState(false);
+  const { authenticate } = useContext(AccountContext);
 
   const loginUser = (username, password) => {
-    const user = new CognitoUser({
-      Username: username,
-      Pool: UserPool,
-    });
-
-    const authDetails = new AuthenticationDetails({
-      Username: username,
-      Password: password,
-    });
-
-    user.authenticateUser(authDetails, {
-      onSuccess: (data) => {
-        console.log('onSuccess:', data);
-      },
-      onFailure: (err) => {
-        console.log('onFailure:', err);
-      },
-      newPasswordRequired: (data) => {
-        console.log('newPasswordRequired:', data);
-      },
-    });
+    authenticate(username, password)
+      .then((data) => {
+        console.log('Logged in!', data);
+        setShowForm(false);
+      })
+      .catch((err) => {
+        console.error('Failed to login!', err);
+      });
   };
 
   const maskTransitions = useTransition(showForm, null, {

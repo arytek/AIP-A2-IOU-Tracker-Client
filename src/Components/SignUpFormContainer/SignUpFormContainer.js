@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import UserPool from '../../Utility/UserPool';
-import authenticateUser from '../../Utility/Authenticate';
+import React, { useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import UserPool from '../../Utility/UserPool';
+import { AccountContext } from '../../Contexts/Accounts';
 
 import SignUp from './SignUp';
 import ConfirmRegistration from './ConfirmRegistration';
@@ -17,6 +17,8 @@ function SignUpFormContainer() {
   let [errorMessage, setErrorMessage] = useState('');
 
   let history = useHistory();
+  const { authenticate } = useContext(AccountContext);
+
   let content = null;
 
   useEffect(() => {
@@ -58,13 +60,14 @@ function SignUpFormContainer() {
     if (cognitoUser) {
       cognitoUser.confirmRegistration(confirmationCode, false, (err, data) => {
         if (data) {
-          authenticateUser(
-            signUpStep.params.username,
-            signUpStep.params.password,
-            signUpStep.params.cognitoUser
-          ).then((data) => {
-            console.log(data);
-          });
+          authenticate(signUpStep.params.username, signUpStep.params.password)
+            .then((data) => {
+              console.log('Logged in!', data);
+            })
+            .catch((err) => {
+              console.error('Failed to login!', err);
+            });
+
           setSignUpStep({
             ...signUpStep,
             state: 'confirmed',
