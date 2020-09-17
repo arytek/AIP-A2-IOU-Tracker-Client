@@ -1,8 +1,12 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Loader from "../Components/Loader";
-import { useAxiosGet } from "../Hooks/HttpRequests";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Loader from '../Components/Loader';
+import { useAxiosGet } from '../Hooks/HttpRequests';
 
+/**
+ * React component broilerplate code. Refer to this component for guidance.
+ * Component used to display the individual product page.
+ */
 function Product() {
   const { id } = useParams();
   const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/products/${id}`;
