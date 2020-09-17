@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+/**
+ * Component for rendering the sign up form.
+ * To be used with SignUpFormContainer.js.
+ */
 function SignUp(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

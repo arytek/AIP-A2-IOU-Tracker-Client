@@ -3,6 +3,13 @@ import { useTransition, animated } from 'react-spring';
 import Login from './Login';
 import { AccountContext } from '../../Contexts/Accounts';
 
+/**
+ * Component for rendering the login prompt.
+ * To be used with header.js.
+ *
+ * TODO: Refactor so that it renders just the form, rather than a button.
+ *
+ */
 function LoginFormContainer() {
   const [showForm, setShowForm] = useState(false);
   const { authenticate } = useContext(AccountContext);
@@ -12,6 +19,7 @@ function LoginFormContainer() {
       .then((data) => {
         console.log('Logged in!', data);
         setShowForm(false);
+        window.location.href = '/';
       })
       .catch((err) => {
         console.error('Failed to login!', err);
@@ -32,6 +40,7 @@ function LoginFormContainer() {
 
   return (
     <div>
+      {/* Remove this span later, as mentioned above. */}
       <span
         className="text mx-5 border border-gray-900 rounded px-4 p-1 cursor-pointer"
         onClick={() => setShowForm(!showForm)}

@@ -1,5 +1,8 @@
-import React from "react";
+import React from 'react';
 
+/**
+ * Component used to display the about page.
+ */
 function About() {
   return (
     <div>

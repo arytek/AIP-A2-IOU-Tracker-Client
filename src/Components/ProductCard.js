@@ -1,6 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
+/**
+ * React component broilerplate code. Refer to this component for guidance.
+ * Displays the product information.
+ */
 function ProductCard(props) {
   return (
     <div className="border mb-4 rounded overflow-hidden">

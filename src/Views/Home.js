@@ -3,6 +3,9 @@ import Loader from '../Components/Loader';
 import ProductCard from '../Components/ProductCard';
 import { useAxiosGet } from '../Hooks/HttpRequests';
 
+/**
+ * Component used to display the home page.
+ */
 function Home() {
   const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/products/?page=1&limit=10`;
 

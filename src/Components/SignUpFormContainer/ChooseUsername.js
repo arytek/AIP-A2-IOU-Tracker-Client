@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+/**
+ * Component for rendering the choose username form.
+ * To be used with LoginFormContainer.js.
+ */
 function ChooseUsername(props) {
   const [username, setUsername] = useState('');
 

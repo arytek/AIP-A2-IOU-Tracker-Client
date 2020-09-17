@@ -1,6 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
+/**
+ * Component of the NavigationMenu that displays when the users
+ * clicks on the navigation button located on the header.
+ */
 function NavigationMenu(props) {
   return (
     <div>

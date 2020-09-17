@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+/**
+ * Component for rendering the confirm email form.
+ * To be used with LoginFormContainer.js.
+ */
 function ConfirmRegistration(props) {
   const [confirmationCode, setConfirmationCode] = useState('');
 

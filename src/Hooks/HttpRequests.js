@@ -1,6 +1,16 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
+/**
+   * Uses the Axios HTTP library to make HTTP requests to a url.   
+   * @param {string} url  The url you would like to fetch.
+   * @returns {Object}  Object containing the following structure:
+   * {
+        loading: false,
+        data: null,
+        error: false,
+      }
+   */
 export function useAxiosGet(url) {
   const [request, setRequest] = useState({
     loading: false,

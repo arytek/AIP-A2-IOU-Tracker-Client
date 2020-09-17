@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+/**
+ * Component for rendering the login form.
+ * To be used with LoginFormContainer.js.
+ */
 function Login(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +20,7 @@ function Login(props) {
           Login
         </h1>
 
-        <label className="form__label">Username</label>
+        <label className="form__label">Username or email address</label>
         <input
           className="text-field focus:outline-none focus:bg-white"
           value={username}

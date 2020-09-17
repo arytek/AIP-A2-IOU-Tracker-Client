@@ -1,5 +1,8 @@
-import React from "react";
+import React from 'react';
 
+/**
+ * Component for showing a loading animation to the user when a task is loading.
+ */
 function Loader() {
   return (
     <div className="sk-folding-cube">
