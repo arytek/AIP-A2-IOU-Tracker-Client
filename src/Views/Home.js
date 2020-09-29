@@ -1,31 +1,31 @@
 import React from 'react';
 import Loader from '../Components/Loader';
-import ProductCard from '../Components/ProductCard';
-import { useAxiosGet } from '../Hooks/HttpRequests';
+import RequestCard from '../Components/RequestCard';
+import requestsData from "../requestsFakeData";
 
 /**
  * Component used to display the home page.
  * TODO: Refactor so that it displays a list of requests.
  */
 function Home() {
-  const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/products/?page=1&limit=10`;
+  const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/requests/?page=1&limit=10`;
 
-  let products = useAxiosGet(url);
+  let requests = requestsData;
 
   let content = null;
 
-  if (products.error) {
+  if (requests.error) {
     content = <p>There was an error please refresh or try again later.</p>;
   }
 
-  if (products.loading) {
+  if (requests.loading) {
     content = <Loader></Loader>;
   }
 
-  if (products.data) {
-    content = products.data.map((product) => (
-      <div key={product.id}>
-        <ProductCard product={product} />
+  if (requests) {
+    content = requests.map((request) => (
+      <div key={request.id}>
+        <RequestCard request={request} />
       </div>
     ));
   }

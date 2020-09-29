@@ -4,7 +4,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Home from './Views/Home';
 import About from './Views/About';
-import Product from './Views/Product';
+import Request from './Views/Request';
 import SignUpFormContainer from './Components/SignUpFormContainer/SignUpFormContainer';
 import { Account } from './Contexts/Accounts';
 
@@ -23,8 +23,8 @@ function App() {
               <Route path="/about">
                 <About />
               </Route>
-              <Route path="/products/:id">
-                <Product />
+              <Route path="/requests/:id">
+                <Request />
               </Route>
               <Route path="/signup">
                 <SignUpFormContainer />
