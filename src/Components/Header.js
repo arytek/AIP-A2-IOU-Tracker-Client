@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import Navigation from "./Navigation";
-import LoginFormContainer from "./LoginFormContainer/LoginFormContainer";
-import { AccountContext } from "../Contexts/Accounts";
-import Search from "./Search";
+import React, { useContext, useEffect, useState } from 'react';
+import Navigation from './Navigation';
+import LoginFormContainer from './LoginFormContainer/LoginFormContainer';
+import { AccountContext } from '../Contexts/Accounts';
+import Search from './Search';
 
 /**
  * Header component that is always visible at the top of the viewport.
@@ -16,7 +16,7 @@ function Header() {
   useEffect(() => {
     getSession()
       .then(({ session }) => {
-        console.log("Session:", session);
+        console.log('Session:', session);
         setLoggedIn(true);
       })
       .catch(() => {

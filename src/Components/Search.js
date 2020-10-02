@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Search() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   return (
     <div>

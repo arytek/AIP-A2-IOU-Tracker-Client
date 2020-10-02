@@ -1,8 +1,7 @@
-import React from "react";
-import Loader from "../Components/Loader";
-import ProductCard from "../Components/ProductCard";
-import { useAxiosGet } from "../Hooks/HttpRequests";
-import Search from "../Components/Search";
+import React from 'react';
+import Loader from '../Components/Loader';
+import ProductCard from '../Components/ProductCard';
+import { useAxiosGet } from '../Hooks/HttpRequests';
 
 /**
  * Component used to display the home page.
