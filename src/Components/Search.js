@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-/**
- * Component that allows the user to search for a request.
- */
 function Search() {
-  return <div></div>;
+  const [search, setSearch] = useState('');
+
+  return (
+    <div>
+      <input
+        type="text"
+        id="search"
+        placeholder="Search"
+        value={search}
+        onChange={(event) => {
+          setSearch(event.target.value);
+        }}
+      />
+      <Link
+        to={`/products/${search}`}
+        className="text mx-5 border border-gray-900 rounded px-5 cursor-pointer"
+      >
+        Search
+      </Link>
+    </div>
+  );
 }
 export default Search;

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Navigation from './Navigation';
 import LoginFormContainer from './LoginFormContainer/LoginFormContainer';
 import { AccountContext } from '../Contexts/Accounts';
+import Search from './Search';
 
 /**
  * Header component that is always visible at the top of the viewport.
@@ -27,6 +28,7 @@ function Header() {
     <header className="border-b p-3 flex justify-between items-center">
       <span className="font-bold">AppName</span>
       <div className="flex justify-between items-center">
+        <Search />
         {/* If isLoggedIn, render a logout button, else render a login button */}
         {/* TODO: Also render a 'Profile' button is isLoggedIn */}
         {isLoggedIn ? (
@@ -39,6 +41,7 @@ function Header() {
         ) : (
           <LoginFormContainer />
         )}
+
         <Navigation />
       </div>
     </header>
