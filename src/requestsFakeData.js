@@ -1,7 +1,7 @@
 const requests = [
     {
         id: "1",
-        title: "Clean house",
+        title: "Coffee",
         author: "Dave Smith",
         dateCreated: "22/09",
         description: true,
@@ -9,28 +9,28 @@ const requests = [
     },
     {
         id: "2",
-        title: "Clean the fridge!",
+        title: "Pizza",
         author: "Eric Cheese",
         dateCreated: "22/09",
         description: false,
     },
     {
         id: "3",
-        title: "Post the test answers",
+        title: "Cupcake",
         author: "Dean Waters",
         dateCreated: "22/09",
         description: false
     },
     {
         id: "4",
-        title: "Complete my survey",
+        title: "Lunch",
         author: "Jess Milk",
         dateCreated: "22/09",
         description: false
     },
     {
         id: "5",
-        title: "Swim in sand",
+        title: "Movies",
         author: "Barry Brewster",
         dateCreated: "22/09",
         description: true

@@ -29,8 +29,8 @@ function RequestCard(props) {
                     <Link
                         to={`/requests/${props.request.id}`}
                         className="bg-blue-500 text-white p-2 flex justify-center w-24"
-                    >
-                        Claim
+                    >   
+                        View
                     </Link>
                 </div>
             </div>
