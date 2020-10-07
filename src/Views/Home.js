@@ -2,6 +2,8 @@ import React from 'react';
 import Loader from '../Components/Loader';
 import RequestCard from '../Components/RequestCard';
 import requestsData from "../requestsFakeData";
+import Search from "../Components/Search";
+
 
 /**
  * Component used to display the home page.
@@ -21,7 +23,7 @@ function Home() {
   if (requests.loading) {
     content = <Loader></Loader>;
   }
-
+  
   if (requests) {
     content = requests.map((request) => (
       <div key={request.id}>
@@ -31,9 +33,14 @@ function Home() {
   }
 
   return (
-    <div className="mx-auto w-full md:w-2/4">
-      <h1 className="font-bold text-2x1 mb-3">Best Sellers</h1>
-      {content}
+    <div>
+      <div className="mx-auto w-full md:w-2/4">
+      <Search/>
+      </div>
+      <div className="mx-auto w-full md:w-2/4 py-6">
+        <h1 className="font-bold text-2x1 mb-3">Requests</h1>
+        {content}
+      </div>
     </div>
   );
 }

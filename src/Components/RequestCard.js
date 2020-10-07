@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
  */
 function RequestCard(props) {
     return (
-        <div className="border mb-4 rounded overflow-hidden">
+        <div className="border mb-4 rounded overflow-hidden rounded-lg">
             <div className="p-3">
                 <div className="mb-3 flex justify-start">
                     <div className="self-center bg-blue-500 w-10 h-10 p-2 rounded-full"></div>
@@ -28,7 +28,7 @@ function RequestCard(props) {
                     </div>
                     <Link
                         to={`/requests/${props.request.id}`}
-                        className="bg-blue-500 text-white p-2 flex justify-center w-24"
+                        className="bg-blue-500 text-white p-2 flex justify-center w-24 rounded-lg"
                     >   
                         View
                     </Link>
