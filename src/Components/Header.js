@@ -27,6 +27,7 @@ function Header() {
   return (
     <header className="border-b p-3 flex justify-between items-center">
       <span className="font-bold">AppName</span>
+
       <div className="flex justify-between items-center">
         <Search />
         {/* If isLoggedIn, render a logout button, else render a login button */}
