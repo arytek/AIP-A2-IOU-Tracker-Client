@@ -29,27 +29,22 @@ function Request() {
   if (request) {
     content =(
       <RequestView
-        title = "Coffee"
+        titles = "Coffee"
+        authors = "Dave"
+        dateCreateds = "24/9"
+        status = "unfulfilled"
+        request = "clean office fridge"
+
+        reward = "Coffee"
+        requester= "John"
+        notes = "The office fridge is located on level 3 of building 2"
       />
-    );
-    
-    requestContent =(
-      <Requester
-        requester = "John"
-      />  
     );
   }
 
   return (
-    <div className="border mb-4 rounded overflow-hidden p-4">
-      <div className="mx-auto w-full md:w-2/4">
-        <div className="border mb-auto rounded overflow-hidden">
-          {content}
-        </div>
-        <div Class = "px-16 p-3">
-          {requestContent}
-        </div>
-      </div>
+    <div className="mb-4 rounded-lg overflow-hidden m-4 width: auto;">
+      {content}
     </div>
   );
 }

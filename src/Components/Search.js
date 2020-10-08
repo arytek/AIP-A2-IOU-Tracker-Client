@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 
  function Search() {
   const [search, setSearch] = useState('');
-
   return (
     <div>
       <input 
@@ -25,7 +24,7 @@ import React, { useState } from 'react';
           </span>
         </button>
         <div class="dropdown-content">
-          <p>Hello World!</p>
+          <p>hello</p>
         </div>
       </div>
       
@@ -38,4 +37,5 @@ import React, { useState } from 'react';
     </div>
   );
 }
+
 export default Search;
