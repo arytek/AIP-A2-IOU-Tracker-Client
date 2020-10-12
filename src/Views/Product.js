@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../Components/Loader';
 import { useAxiosGet } from '../Hooks/HttpRequests';
-
 /**
  * React component broilerplate code. Refer to this component for guidance.
  * Component used to display the individual product page.

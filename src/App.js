@@ -7,6 +7,9 @@ import About from './Views/About';
 import Product from './Views/Product';
 import SignUpFormContainer from './Components/SignUpFormContainer/SignUpFormContainer';
 import { Account } from './Contexts/Accounts';
+import Profile from './Components/Profile';
+import Leaderboard from './Components/LeaderBoard';
+
 
 function App() {
   return (
@@ -28,6 +31,12 @@ function App() {
               </Route>
               <Route path="/signup">
                 <SignUpFormContainer />
+              </Route>
+              <Route path="/profile">
+                <Profile />
+              </Route>
+              <Route path="/leaderboard">
+                <Leaderboard />
               </Route>
             </Switch>
           </div>

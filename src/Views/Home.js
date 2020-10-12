@@ -2,6 +2,7 @@ import React from 'react';
 import Loader from '../Components/Loader';
 import ProductCard from '../Components/ProductCard';
 import { useAxiosGet } from '../Hooks/HttpRequests';
+import Search from '../Components/Search';
 
 /**
  * Component used to display the home page.
@@ -33,6 +34,7 @@ function Home() {
   return (
     <div className="mx-auto w-full md:w-2/4">
       <h1 className="font-bold text-2x1 mb-3">Best Sellers</h1>
+      <Search />
       {content}
     </div>
   );
