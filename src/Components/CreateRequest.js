@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 
 function CreateRequest(props) {
-	const [rewards, setRewards] = useState('');
+	//const [rewards, setRewards] = useState('');
 	const [rewardsList, setRewardsList] = useState([]);
-	const initialState = { description: '', rewards: '', note: '' };
+	const initialState = { description: '', rewardsList: [], note: '' };
 	const [request, setRequest] = useState(initialState);
 	const [requestList, setRequestList] = useState([]);
 
@@ -27,7 +27,6 @@ function CreateRequest(props) {
 					value={request.description}
 					onChange={(event) => {
 						event.preventDefault();
-						//	setRequestDescription(event.target.value);
 						setRequest({ ...request, description: event.target.value });
 					}}
 				/>
@@ -38,7 +37,8 @@ function CreateRequest(props) {
 						value={request.rewards}
 						onClick={(event) => {
 							event.preventDefault();
-							setRequest({ ...request, rewards: ['Coffee'] });
+							setRewardsList((rewardsList) => [...rewardsList, 'Coffee']);
+							setRequest({ ...request, rewardsList });
 						}}>
 						Coffee
 					</button>
@@ -47,7 +47,8 @@ function CreateRequest(props) {
 						value={request.rewards}
 						onClick={(event) => {
 							event.preventDefault();
-							setRequest({ ...request, rewards: ['Chocolate'] });
+							setRewardsList((rewardsList) => [...rewardsList, 'Chocolate']);
+							setRequest({ ...request, rewardsList });
 						}}>
 						Chocolate
 					</button>
@@ -56,7 +57,8 @@ function CreateRequest(props) {
 						value={request.rewards}
 						onClick={(event) => {
 							event.preventDefault();
-							setRequest({ ...request, rewards: 'Pizza' });
+							setRewardsList((rewardsList) => [...rewardsList, 'Pizza']);
+							setRequest({ ...request, rewardsList });
 						}}>
 						Pizza
 					</button>
@@ -65,7 +67,8 @@ function CreateRequest(props) {
 						value={request.rewards}
 						onClick={(event) => {
 							event.preventDefault();
-							setRequest({ ...request, rewards: 'Cupcakes' });
+							setRewardsList((rewardsList) => [...rewardsList, 'Cupcakes']);
+							setRequest({ ...request, rewardsList });
 						}}>
 						Cupcakes
 					</button>
@@ -76,7 +79,8 @@ function CreateRequest(props) {
 						value={request.rewards}
 						onClick={(event) => {
 							event.preventDefault();
-							setRequest({ ...request, rewards: 'Chips' });
+							setRewardsList((rewardsList) => [...rewardsList, 'Chips']);
+							setRequest({ ...request, rewardsList });
 						}}>
 						Chips
 					</button>
@@ -85,9 +89,9 @@ function CreateRequest(props) {
 						value={request.rewards}
 						onClick={(event) => {
 							event.preventDefault();
-							setRequest({ ...request, rewards: 'Fries' });
+							setRewardsList((rewardsList) => [...rewardsList, 'Fries']);
+							setRequest({ ...request, rewardsList });
 						}}>
-						{' '}
 						Fries
 					</button>
 					<button
@@ -95,7 +99,8 @@ function CreateRequest(props) {
 						value={request.rewards}
 						onClick={(event) => {
 							event.preventDefault();
-							setRequest({ ...request, rewards: 'Burger' });
+							setRewardsList((rewardsList) => [...rewardsList, 'Burger']);
+							setRequest({ ...request, rewardsList });
 						}}>
 						Burger
 					</button>
@@ -104,7 +109,8 @@ function CreateRequest(props) {
 						value={request.rewards}
 						onClick={(event) => {
 							event.preventDefault();
-							setRequest({ ...request, rewards: 'Gift card' });
+							setRewardsList((rewardsList) => [...rewardsList, 'Gift Card']);
+							setRequest({ ...request, rewardsList });
 						}}>
 						Gift Card
 					</button>
@@ -127,17 +133,17 @@ function CreateRequest(props) {
 						type='submit'
 						onClick={(event) => {
 							event.preventDefault();
-							setRewardsList([...rewardsList, rewards]);
-							setRequestList([...requestList, request]);
+							setRequestList((requestList) => [...requestList, request]);
 						}}>
 						Create
 					</button>
 				</div>
 			</form>
+
 			<ul>
 				{requestList.map((item) => (
 					<li>
-						description: {item.description}, rewards: {item.rewards}, notes:
+						description: {item.description}, rewards: {item.rewardsList}, notes:
 						{item.note}
 					</li>
 				))}
