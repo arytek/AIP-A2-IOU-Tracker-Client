@@ -5,39 +5,45 @@ import RequestCard from '../Components/RequestCard';
 import requestsData from "../requestsFakeData";
 import RequestView from "../Components/RequestView";
 import Requester from "../Components/Requester";
+import requests from '../requestsFakeData';
 
 
 /**
  * React component broilerplate code. Refer to this component for guidance.
  * Component used to display the individual request page.
  */
+
+
+
 function Request() {
+let storageData = localStorage.getItem("request");
+let currentRequest = storageData.split(",")
+
   const { id } = useParams();
 
   let request = requestsData;
   let content = null;
   let requestContent = null;
-
   if (request.error) {
     content = <p>There was an error please refresh or try again later.</p>;
   }
-
   if (request.loading) {
     content = <Loader></Loader>;
   }
 
   if (request) {
     content =(
+      
       <RequestView
-        titles = "Coffee"
-        authors = "Dave"
-        dateCreateds = "24/9"
-        status = "unfulfilled"
-        request = "clean office fridge"
+        titles = {currentRequest[1]}
+        authors = {currentRequest[2]}
+        dateCreateds = {currentRequest[3]}
+        status = {currentRequest[4]}
+        request = {currentRequest[5]}
 
-        reward = "Coffee"
-        requester= "John"
-        notes = "The office fridge is located on level 3 of building 2"
+        reward = {currentRequest[1]}
+        rewarders= {currentRequest[7]}
+        notes = {currentRequest[6]}
       />
     );
   }

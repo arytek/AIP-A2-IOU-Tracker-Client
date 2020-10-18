@@ -16,14 +16,14 @@ import React, { useState } from 'react';
           setSearch(event.target.value);
         }}
       />
-      <div class="dropdown">
+      <div className="dropdown">
         <button className="border border-gray-900 py-2 text-left rounded-lg dropdown margin-left px-4">
           Reward Type
           <span className="px-4">
-            <i class="arrow down"></i>
+            <i className="arrow down"></i>
           </span>
         </button>
-        <div class="dropdown-content">
+        <div className="dropdown-content">
           <p>hello</p>
         </div>
       </div>

@@ -13,7 +13,6 @@ function Home() {
   const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/requests/?page=1&limit=10`;
 
   let requests = requestsData;
-
   let content = null;
 
   if (requests.error) {
