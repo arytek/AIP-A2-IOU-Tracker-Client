@@ -33,12 +33,9 @@ function Home() {
 
   return (
     <div>
-      <SideMenu />
-      <div className="mx-auto w-full md:w-2/4"></div>
-      <div className="mx-auto w-full md:w-2/4 py-6">
-        <h1 className="font-bold text-2x1 mb-3">Requests</h1>
+      <div>
+        <h1 className="text-2xl mb-3">Requests</h1>
         <Search />
-
         {content}
       </div>
     </div>

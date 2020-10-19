@@ -10,7 +10,7 @@ function CreateRequest(props) {
 
   return (
     <div>
-      <form className="text mx-0 border-none border-gray-1200 rounded px-50 p-1 cursor-pointer">
+      <form className="text mx-0 border-none border-gray-1200 rounded px-50 p-1">
         <h1 className="font-sans text-3xl text-gray-800 text-left mb-1">
           Create a request
         </h1>

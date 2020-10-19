@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateRequestForm from './CreateRequestForm';
-import SideMenu from './SideMenu';
+
 /**
  * Component that renders the profile page of the user where they can manage
  * their existing favours and requests, plus other things.
@@ -8,9 +8,10 @@ import SideMenu from './SideMenu';
 function Profile(props) {
   return (
     <div>
-      <SideMenu />
+      <h1 className="text-2xl mb-1">Barry Hamilton</h1>
+      <div className="font-light text-sm">@Barry</div>
       <div className="text text-center">
-        <CreateRequestForm />
+        <CreateRequestForm className="" />
       </div>
     </div>
   );

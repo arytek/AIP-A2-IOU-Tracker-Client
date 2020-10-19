@@ -20,7 +20,7 @@ function CreateRequestForm() {
   return (
     <div>
       <span
-        className="text mx-5 border border-gray-900 rounded px-5 p-1 cursor-pointer"
+        className="mx-5 border bg-blue-500 text-white rounded-lg px-5 py-2 cursor-pointer"
         onClick={() => setShowRequestForm(!showRequestForm)}
       >
         Create Request

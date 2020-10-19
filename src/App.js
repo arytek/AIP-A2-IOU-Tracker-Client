@@ -9,6 +9,7 @@ import SignUpFormContainer from './Components/SignUpFormContainer/SignUpFormCont
 import { Account } from './Contexts/Accounts';
 import Profile from './Components/Profile';
 import Leaderboard from './Components/LeaderBoard';
+import SideMenu from './Components/SideMenu';
 
 function App() {
   return (
@@ -16,28 +17,30 @@ function App() {
       <Account>
         <Router>
           <Header />
-
-          <div className="p-3">
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/requests/:id">
-                <Request />
-              </Route>
-              <Route path="/signup">
-                <SignUpFormContainer />
-              </Route>
-              <Route path="/profile">
-                <Profile />
-              </Route>
-              <Route path="/leaderboard">
-                <Leaderboard />
-              </Route>
-            </Switch>
+          <SideMenu />
+          <div className="py-8">
+            <div className="mx-auto w-50 md:w-2/4">
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/about">
+                  <About />
+                </Route>
+                <Route path="/requests/:id">
+                  <Request />
+                </Route>
+                <Route path="/signup">
+                  <SignUpFormContainer />
+                </Route>
+                <Route path="/profile">
+                  <Profile />
+                </Route>
+                <Route path="/leaderboard">
+                  <Leaderboard />
+                </Route>
+              </Switch>
+            </div>
           </div>
 
           <Footer />
