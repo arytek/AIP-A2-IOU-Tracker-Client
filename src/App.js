@@ -10,7 +10,6 @@ import { Account } from './Contexts/Accounts';
 import Profile from './Components/Profile';
 import Leaderboard from './Components/LeaderBoard';
 
-
 function App() {
   return (
     <div className="relative pb-10 min-h-screen">

@@ -2,22 +2,19 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../Components/Loader';
 import RequestCard from '../Components/RequestCard';
-import requestsData from "../requestsFakeData";
-import RequestView from "../Components/RequestView";
-import Requester from "../Components/Requester";
+import requestsData from '../requestsFakeData';
+import RequestView from '../Components/RequestView';
+import Requester from '../Components/Requester';
 import requests from '../requestsFakeData';
-
 
 /**
  * React component broilerplate code. Refer to this component for guidance.
  * Component used to display the individual request page.
  */
 
-
-
 function Request() {
-let storageData = localStorage.getItem("request");
-let currentRequest = storageData.split(",")
+  let storageData = localStorage.getItem('request');
+  let currentRequest = storageData.split(',');
 
   const { id } = useParams();
 
@@ -32,18 +29,16 @@ let currentRequest = storageData.split(",")
   }
 
   if (request) {
-    content =(
-      
+    content = (
       <RequestView
-        titles = {currentRequest[1]}
-        authors = {currentRequest[2]}
-        dateCreateds = {currentRequest[3]}
-        status = {currentRequest[4]}
-        request = {currentRequest[5]}
-
-        reward = {currentRequest[1]}
-        rewarders= {currentRequest[7]}
-        notes = {currentRequest[6]}
+        titles={currentRequest[1]}
+        authors={currentRequest[2]}
+        dateCreateds={currentRequest[3]}
+        status={currentRequest[4]}
+        request={currentRequest[5]}
+        reward={currentRequest[1]}
+        rewarders={currentRequest[7]}
+        notes={currentRequest[6]}
       />
     );
   }

@@ -6,13 +6,13 @@ import SideMenu from './SideMenu';
  * their existing favours and requests, plus other things.
  */
 function Profile(props) {
-	return (
-		<div>
-			<SideMenu />
-			<div className='text text-center'>
-				<CreateRequestForm />
-			</div>
-		</div>
-	);
+  return (
+    <div>
+      <SideMenu />
+      <div className="text text-center">
+        <CreateRequestForm />
+      </div>
+    </div>
+  );
 }
 export default Profile;
