@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import CreateRequest from './CreateRequest';
-import ContributeReward from './ContributeReward/ContributeRewardForm';
 import { useTransition, animated } from 'react-spring';
+import ContributeRewardForm from './ContributeRewardForm';
 
-function CreateRequestForm(props) {
+function ContributeRewardContainer(props) {
   const [showRequestForm, setShowRequestForm] = useState(false);
 
   const maskTransitions = useTransition(showRequestForm, null, {
@@ -46,7 +45,7 @@ function CreateRequestForm(props) {
               style={props}
               className="fixed bg-white top-0 left-0 right-0 mx-auto w-full max-w-lg z-50 shadow-md rounded px-8 pt-6 pb-8 mb-4"
             >
-              <CreateRequest closeMenu={() => setShowRequestForm(false)} />
+              <ContributeRewardForm closeMenu={() => setShowRequestForm(false)} />
             </animated.div>
           )
       )}
@@ -54,4 +53,4 @@ function CreateRequestForm(props) {
   );
 }
 
-export default CreateRequestForm;
+export default ContributeRewardContainer;

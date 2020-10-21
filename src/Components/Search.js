@@ -14,6 +14,7 @@ import React, { useState } from 'react';
         value={search}
         onChange={(event) => {
           setSearch(event.target.value);
+          {console.log(setSearch)}
         }}
       />
       <div className="dropdown">
@@ -31,6 +32,7 @@ import React, { useState } from 'react';
       <button
         // className="text mx-5 border border-gray-900 rounded-lg px-5 cursor-pointer"
         className="bg-blue-500 text-white py-2 justify-center rounded-lg margin-left px-6"
+       
       >
         Search
       </button>

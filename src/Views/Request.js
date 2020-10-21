@@ -6,15 +6,21 @@ import requestsData from '../requestsFakeData';
 import RequestView from '../Components/RequestView';
 import Requester from '../Components/Requester';
 import requests from '../requestsFakeData';
+import ContributeRewardContainer from '../Components/ContributeReward/ContributeRewardContainer';
 
 /**
  * React component broilerplate code. Refer to this component for guidance.
  * Component used to display the individual request page.
  */
 
-function Request() {
+ function Request() {
   let storageData = localStorage.getItem('request');
   let currentRequest = storageData.split(',');
+
+  //get contributeReward data from local storage
+  let setRewards = [];
+  setRewards.push(currentRequest[1]);
+  setRewards.push(localStorage.getItem('ContributeReward'));
 
   const { id } = useParams();
 
@@ -36,9 +42,21 @@ function Request() {
         dateCreateds={currentRequest[3]}
         status={currentRequest[4]}
         request={currentRequest[5]}
-        reward={currentRequest[1]}
-        rewarders={currentRequest[7]}
+        reward={
+          setRewards.map((item) => (
+              <div>
+                {item}: rewarded by @{currentRequest[7]}
+              </div>
+          ))
+        }
         notes={currentRequest[6]}
+        contributeButton={
+          <div className="text text-center">
+            <ContributeRewardContainer className="" 
+              buttonName = "Contribute a reward"
+            />
+          </div>
+        }
       />
     );
   }
@@ -46,7 +64,9 @@ function Request() {
   return (
     <div className="mb-4 rounded-lg overflow-hidden m-4 width: auto;">
       {content}
+      
     </div>
+    
   );
 }
 export default Request;

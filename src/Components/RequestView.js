@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CreateRequestForm from '../Components/CreateRequestForm';
 
 function RequestView(props) {
   return (
@@ -28,16 +29,16 @@ function RequestView(props) {
           <h1>Rewards</h1>
           <div className="italic text-sm" style={{ color: '#595959' }}>
             <p>
-              {props.reward}: rewarded by @{props.rewarders}
+              {props.reward}
             </p>
           </div>
         </div>
 
         {/* contribute a reward button */}
         <div className="w-full my-4 text-center">
-          <button className="bg-blue-500  text-white p-2 w-48 mx-auto rounded-lg">
-            Contribute a reward
-          </button>
+          {/* Contribute reward button */}
+          {props.contributeButton}
+          
         </div>
         <div className="my-2">
           <h1>Notes</h1>

@@ -11,7 +11,9 @@ function Profile(props) {
       <h1 className="text-2xl mb-1">Barry Hamilton</h1>
       <div className="font-light text-sm">@Barry</div>
       <div className="text text-center">
-        <CreateRequestForm className="" />
+        <CreateRequestForm className="" 
+          buttonName = "Create Request"
+        />
       </div>
     </div>
   );
