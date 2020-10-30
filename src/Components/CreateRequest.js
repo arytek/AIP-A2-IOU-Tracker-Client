@@ -10,7 +10,13 @@ function CreateRequest(props) {
 
   return (
     <div>
-      <form className="text mx-0 border-none border-gray-1200 rounded px-50 p-1">
+      <form
+        className="text mx-0 border-none border-gray-1200 rounded px-50 p-1"
+        onSubmit={(event) => {
+          event.preventDefault();
+          props.submitForm(request, requestList);
+        }}
+      >
         <h1 className="font-sans text-3xl text-gray-800 text-left mb-1">
           Create a request
         </h1>

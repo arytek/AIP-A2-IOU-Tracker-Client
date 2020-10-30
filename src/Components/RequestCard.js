@@ -23,7 +23,7 @@ function StoreIdInLocalStorage(
     location,
     rewarders,
   ];
-  localStorage.setItem('request',(request));
+  localStorage.setItem('request', request);
 }
 
 function RequestCard(props) {

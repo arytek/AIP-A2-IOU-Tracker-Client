@@ -6,22 +6,6 @@ import { useTransition, animated } from 'react-spring';
 function CreateRequestForm(props) {
   const [showRequestForm, setShowRequestForm] = useState(false);
 
-  const submitForm = (request, requestList) => {
-    let body = {
-      creator_id: props.auth_uuid,
-      requestStatus: 'UNFULFILLED',
-      description: request.description,
-      date: new Date(),
-      notes: request.notes,
-      rewards: [
-        {
-          reward: requestList[0],
-          rewarder: props.auth_uuid,
-        },
-      ],
-    };
-  };
-
   const maskTransitions = useTransition(showRequestForm, null, {
     from: { position: 'absolute', opacity: 0 },
     enter: { opacity: 1 },
@@ -62,10 +46,7 @@ function CreateRequestForm(props) {
               style={props}
               className="fixed bg-white top-0 left-0 right-0 mx-auto w-full max-w-lg z-50 shadow-md rounded px-8 pt-6 pb-8 mb-4"
             >
-              <CreateRequest
-                submitForm={submitForm}
-                closeMenu={() => setShowRequestForm(false)}
-              />
+              <CreateRequest closeMenu={() => setShowRequestForm(false)} />
             </animated.div>
           )
       )}

@@ -17,9 +17,7 @@ function SignUp(props) {
           props.signUpUser(name, email, password);
         }}
       >
-        <h1 className="font-sans text-3xl text-gray-800 text-left mb-4">
-          Create an account
-        </h1>
+        <h1 className="font-sans text-2xl text-left mb-4">Create an account</h1>
 
         <label className="form__label">Name</label>
         <input

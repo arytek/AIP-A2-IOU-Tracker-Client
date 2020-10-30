@@ -1,17 +1,18 @@
 import React from 'react';
-import Loader from '../Components/Loader';
 import RequestCard from '../Components/RequestCard';
 import requestsData from '../requestsFakeData';
 import Search from '../Components/Search';
-import SideMenu from '../Components/SideMenu';
+import Loader from '../Components/Loader';
+import { useAxios } from '../Hooks/HttpRequestMainServer';
 
 /**
  * Component used to display the home page.
  * TODO: Refactor so that it displays a list of requests.
  */
 function Home() {
-  const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/requests/?page=1&limit=10`;
+  //const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/requests/?page=1&limit=10`;
 
+  //let httpRequest = useAxios('requests', 'get', undefined, undefined);
   let requests = requestsData;
   let content = null;
 
@@ -32,9 +33,9 @@ function Home() {
   }
 
   return (
-    <div>
-      <div>
-        <h1 className="text-2xl mb-3">Requests</h1>
+    <div className="text-center m-6 mx-auto w-full max-w-2xl">
+      <div className="">
+        <h1 className="font-sans text-2xl text-left mb-4">Requests</h1>
         <Search />
         {content}
       </div>

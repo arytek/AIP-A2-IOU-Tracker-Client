@@ -14,8 +14,7 @@ function Header() {
   // Check if a user login session exists.
   useEffect(() => {
     getSession()
-      .then(({ session }) => {
-        console.log('Session:', session);
+      .then(() => {
         setLoggedIn(true);
       })
       .catch(() => {
