@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 
 function Pagination() {
@@ -12,6 +12,12 @@ function Pagination() {
 		.slice(offset, offset + PER_PAGE)
 		.map(({ thumburl }) => <img src={thumburl} />);
 	const pageCount = Math.ceil(data.length / PER_PAGE);
+
+	useEffect(() => {
+		fetchData();
+	}, []);
+
+	function fetchData() {}
 
 	function handlePageClick({ selected: selectedPage }) {
 		setCurrentPage(selectedPage);
