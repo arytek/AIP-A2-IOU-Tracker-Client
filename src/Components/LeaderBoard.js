@@ -15,9 +15,7 @@ function LeaderBoard(props) {
 	}
 
 	if (requests) {
-		{
-			/* retrieve users data */
-		}
+		/* retrieve users data */
 		content = requests.map((request) => (
 			<tr className='' key={request.id}>
 				<td className='border p-2 text-center rounded-bl-lg'>{request.id}</td>
