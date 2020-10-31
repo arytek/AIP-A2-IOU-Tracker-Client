@@ -4,6 +4,7 @@ import requestsData from '../requestsFakeData';
 import Search from '../Components/Search';
 import ReactPaginate from 'react-paginate';
 import { useState, useEffect } from 'react';
+import Loader from '../Components/Loader';
 
 /**
  * Component used to display the home page.
