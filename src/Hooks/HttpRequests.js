@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
    * @param {string} url  The url you would like to fetch.
    * @returns {Object}  Object containing the following structure:
    * {
-        loading: false,
-        data: null,
-        error: false,
+        loading: Boolean,
+        data: Object,
+        error: Boolean,
       }
    */
 export function useAxiosGet(url) {

@@ -1,5 +1,4 @@
 import React from 'react';
-import Loader from '../Components/Loader';
 import RequestCard from '../Components/RequestCard';
 import requestsData from '../requestsFakeData';
 import Search from '../Components/Search';

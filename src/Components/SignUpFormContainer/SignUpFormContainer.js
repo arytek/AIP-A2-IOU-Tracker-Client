@@ -6,6 +6,7 @@ import { AccountContext } from '../../Contexts/Accounts';
 import SignUp from './SignUp';
 import ConfirmRegistration from './ConfirmRegistration';
 import ChooseUsername from './ChooseUsername';
+import AddToDb from './AddToDb';
 
 /**
  * Component for rendering the sign up form. Handles sign up UI flow.
@@ -19,7 +20,13 @@ import ChooseUsername from './ChooseUsername';
 function SignUpFormContainer() {
   const [signUpStep, setSignUpStep] = useState({
     state: 'notRegistered',
-    params: { username: null, password: null },
+    params: {
+      auth_uuid: null,
+      username: null,
+      password: null,
+      name: null,
+      email: null,
+    },
   });
   let [errorMessage, setErrorMessage] = useState('');
 
@@ -44,14 +51,16 @@ function SignUpFormContainer() {
         Value: email,
       },
     ];
-    const username = uuidv4();
-    UserPool.signUp(username, password, userAttributes, null, (err, data) => {
+    const auth_uuid = uuidv4();
+    UserPool.signUp(auth_uuid, password, userAttributes, null, (err, data) => {
       if (data) {
         setSignUpStep({
           state: 'registered',
           params: {
-            username: username,
+            auth_uuid: auth_uuid,
             password: password,
+            name: name,
+            email: email,
           },
         });
       } else if (err) {
@@ -63,11 +72,11 @@ function SignUpFormContainer() {
   };
 
   const confirmUser = async (confirmationCode) => {
-    const cognitoUser = await getCognitoUser(signUpStep.params.username);
+    const cognitoUser = await getCognitoUser(signUpStep.params.auth_uuid);
     if (cognitoUser) {
       cognitoUser.confirmRegistration(confirmationCode, false, (err, data) => {
         if (data) {
-          authenticate(signUpStep.params.username, signUpStep.params.password)
+          authenticate(signUpStep.params.auth_uuid, signUpStep.params.password)
             .then((data) => {
               console.log('Logged in!', data);
             })
@@ -103,7 +112,13 @@ function SignUpFormContainer() {
         user.updateAttributes(userAttributes, (err, data) => {
           console.log('confirmation: ', err, data);
           if (data) {
-            setSignUpStep({ state: 'choseUsername' });
+            console.log('BEFORE:', signUpStep);
+            setSignUpStep({
+              ...signUpStep,
+              state: 'choseUsername',
+              params: { ...signUpStep.params, username: username },
+            });
+            console.log('AFTER:', signUpStep);
           } else if (err) {
             setErrorMessage(
               'An error has occured. Please refresh or try again later.'
@@ -117,6 +132,13 @@ function SignUpFormContainer() {
       .catch((err) => {
         console.error(err);
       });
+  };
+
+  const addedToDb = () => {
+    setSignUpStep({
+      ...signUpStep,
+      state: 'addedToDb',
+    });
   };
 
   switch (signUpStep.state) {
@@ -135,13 +157,19 @@ function SignUpFormContainer() {
       break;
 
     case 'choseUsername':
+      content = (
+        <AddToDb addedToDb={addedToDb} signUpData={signUpStep.params} />
+      );
+      break;
+
+    case 'addedToDb':
       window.location.href = '/';
       break;
     default:
   }
 
   return (
-    <div className="mx-auto w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="mx-auto w-full max-w-lg bg-white m-6">
       {content}
       <p className="text-center mt-4">{errorMessage}</p>
     </div>

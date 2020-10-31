@@ -4,7 +4,7 @@ import CreateRequestForm from '../Components/CreateRequestForm';
 
 function RequestView(props) {
   return (
-    <div className="border mb-4 overflow-hidden rounded-lg p-3">
+    <div className="border mb-4 overflow-hidden rounded-lg p-3 m-6 mx-auto w-full max-w-2xl">
       <div className="mb-3 justify-start">
         {/* Reward heading title */}
         <div className="pl-2">
@@ -28,9 +28,7 @@ function RequestView(props) {
         <div className="my-2">
           <h1>Rewards</h1>
           <div className="italic text-sm" style={{ color: '#595959' }}>
-            <p>
-              {props.reward}
-            </p>
+            <p>{props.reward}</p>
           </div>
         </div>
 
@@ -38,7 +36,6 @@ function RequestView(props) {
         <div className="w-full my-4 text-center">
           {/* Contribute reward button */}
           {props.contributeButton}
-          
         </div>
         <div className="my-2">
           <h1>Notes</h1>
