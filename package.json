@@ -19,7 +19,7 @@
     "react-icons": "^3.11.0",
     "react-paginate": "^6.5.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^4.0.0",
     "react-spring": "^8.0.27",
     "tailwindcss": "^1.7.3",
     "uuid": "^8.3.0"
