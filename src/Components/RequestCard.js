@@ -13,6 +13,7 @@ function StoreIdInLocalStorage(
   location,
   rewarders
 ) {
+  // store values in request array
   let request = [
     id,
     title,
@@ -23,16 +24,18 @@ function StoreIdInLocalStorage(
     location,
     rewarders,
   ];
+  // store to local storage
   localStorage.setItem('request', request);
 }
 
+//requests on main page layout
 function RequestCard(props) {
   return (
     <div className="border mb-4 overflow-hidden rounded-lg p-3">
       <div className="mb-3 flex justify-start">
         <div className="pl-2">
-          <h3 className="font-bold text-xl">{props.request.title}</h3>
-          <div className="font-light text-xs">
+          <h3 className="font-bold text-xl text-left">{props.request.title}</h3>
+          <div className="font-light text-xs text-left">
             Added by {props.request.author} {props.request.dateCreated} - status{' '}
             {props.request.status}
           </div>
@@ -41,7 +44,7 @@ function RequestCard(props) {
       <hr className="w-100 mb-3" />
       <div className="flex justify-end w-full">
         <div
-          className="flex-grow italic text-sm font-bold"
+          className="flex-grow italic text-sm font-bold text-left"
           style={{ color: '#93939f' }}
         >
           {props.request.description}
@@ -51,8 +54,10 @@ function RequestCard(props) {
         </div>
 
         <Link
+          //link to request view page using request id according to the request that was clicked on
           to={`/requests/${props.request.id}`}
           className="bg-blue-500 text-white p-2 flex justify-center w-24 rounded-lg"
+          // onclick store value to storeIdInLocalStorage function
           onClick={() =>
             StoreIdInLocalStorage(
               props.request.id,

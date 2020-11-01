@@ -18,6 +18,7 @@ function SideMenu() {
       });
   });
 
+  // side menu navigation buttons
   return (
     <div className="w-auto border border-gray-500 rounded-lg mt-6 ml-32 p-4 flex flex-col float-left">
       <div className="text w-auto border-none rounded block">

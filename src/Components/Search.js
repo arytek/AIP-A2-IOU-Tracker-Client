@@ -2,10 +2,12 @@ import React, { useState } from 'react';
  import { Link } from 'react-router-dom';
  import "./Search.css";
 
+ //search bar layout
  function Search() {
   const [search, setSearch] = useState('');
   return (
     <div>
+      {/* search input box */}
       <input 
         type="text"
         id="search"
@@ -17,6 +19,8 @@ import React, { useState } from 'react';
           {console.log(setSearch)}
         }}
       />
+
+      {/* dropdown list */}
       <div className="dropdown">
         <button className="border border-gray-900 py-2 text-left rounded-lg dropdown margin-left px-4">
           Reward Type
@@ -29,10 +33,10 @@ import React, { useState } from 'react';
         </div>
       </div>
       
+      {/* search button */}
       <button
         // className="text mx-5 border border-gray-900 rounded-lg px-5 cursor-pointer"
         className="bg-blue-500 text-white py-2 justify-center rounded-lg margin-left px-6"
-       
       >
         Search
       </button>

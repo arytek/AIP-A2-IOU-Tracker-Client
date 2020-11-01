@@ -2,9 +2,8 @@ import React from 'react';
 import RequestCard from '../Components/RequestCard';
 import requestsData from '../requestsFakeData';
 import Search from '../Components/Search';
-import ReactPaginate from 'react-paginate';
-import { useState, useEffect } from 'react';
 import Loader from '../Components/Loader';
+import { useAxios } from '../Hooks/HttpRequestMainServer';
 
 /**
  * Component used to display the home page.
@@ -13,23 +12,9 @@ import Loader from '../Components/Loader';
 function Home() {
   //const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/requests/?page=1&limit=10`;
 
+  //let httpRequest = useAxios('requests', 'get', undefined, undefined);
   let requests = requestsData;
   let content = null;
-  const [currentPage, setCurrentPage] = useState(0);
-  const [data, setData] = useState([]);
-  /* set quantity of data in each page  */
-  const PER_PAGE = 10;
-  const offset = currentPage * PER_PAGE;
-  const pageCount = Math.ceil(data.length / PER_PAGE);
-
-  useEffect(() => {
-    setData(requests);
-  }, []);
-
-  /* handle for selecting page  */
-  function handlePageClick({ selected: selectedPage }) {
-    setCurrentPage(selectedPage);
-  }
 
   if (requests.error) {
     content = <p>There was an error please refresh or try again later.</p>;
@@ -40,8 +25,7 @@ function Home() {
   }
 
   if (requests) {
-    /* handle for display request data */
-    content = data.slice(offset, offset + PER_PAGE).map((request) => (
+    content = requests.map((request) => (
       <div key={request.id}>
         <RequestCard request={request} />
       </div>
@@ -49,24 +33,11 @@ function Home() {
   }
 
   return (
-    <div className="text-center m-6 mx-auto w-full max-w-2xl">
-      <div className="">
+    <div className="mb-4 rounded-lg overflow-hidden m-4 width: auto; mr-48 max-w-2xl ml-16">
+      <div>
         <h1 className="font-sans text-2xl text-left mb-4">Requests</h1>
         <Search />
         {content}
-        <div className="flex flex-wrap justify-center text-center font-bold text-blue-500 cursor-pointer ">
-          <ReactPaginate
-            previousLabel={'← Previous'}
-            nextLabel={'Next →'}
-            pageCount={pageCount}
-            onPageChange={handlePageClick}
-            containerClassName={'pagination'}
-            previousLinkClassName={'pagination__link'}
-            nextLinkClassName={'pagination__link'}
-            disabledClassName={'pagination__link--disabled'}
-            activeClassName={'pagination__link--active'}
-          />
-        </div>
       </div>
     </div>
   );
