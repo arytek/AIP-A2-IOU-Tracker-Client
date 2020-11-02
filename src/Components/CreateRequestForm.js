@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import CreateRequest from './CreateRequest';
 import { useTransition, animated } from 'react-spring';
 
+/**
+ * Create request overlay component that is visible upon clicking the 'Create Request' button in 'Profile'.
+ */
 function CreateRequestForm(props) {
   const [showRequestForm, setShowRequestForm] = useState(false);
 

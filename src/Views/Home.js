@@ -6,12 +6,8 @@ import Loader from '../Components/Loader';
 
 /**
  * Component used to display the home page.
- * TODO: Refactor so that it displays a list of requests.
  */
 function Home() {
-  //const url = `https://5e9623dc5b19f10016b5e31f.mockapi.io/api/v1/requests/?page=1&limit=10`;
-
-  //let httpRequest = useAxios('requests', 'get', undefined, undefined);
   let requests = requestsData;
   let content = null;
 

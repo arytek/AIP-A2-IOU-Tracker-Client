@@ -5,7 +5,6 @@ import RequestView from '../Components/RequestView';
 import ContributeRewardContainer from '../Components/ContributeReward/ContributeRewardContainer';
 
 /**
- * React component broilerplate code. Refer to this component for guidance.
  * Component used to display the individual request page.
  */
 

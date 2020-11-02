@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { FaHome, FaUsers, FaUserAlt, FaUserPlus } from 'react-icons/fa';
 import { AccountContext } from '../Contexts/Accounts';
 
+/**
+ * The side-menu component that is persistently visible on the left side of the viewport.
+ */
 function SideMenu() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const { getSession } = useContext(AccountContext);

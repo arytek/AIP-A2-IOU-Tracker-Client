@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import CreateRequest from './CreateRequest';
 import { useTransition, animated } from 'react-spring';
 
+/**
+ * Create favour overlay component that is visible upon clicking the 'Create Favour' button in 'Profile'.
+ */
 function CreateRequestForm(props) {
   const [showRequestForm, setShowRequestForm] = useState(false);
 

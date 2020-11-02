@@ -1,3 +1,4 @@
+// User pool connection settings for use with AWS Cognito authentication service.
 import { CognitoUserPool } from 'amazon-cognito-identity-js';
 
 const poolData = {
