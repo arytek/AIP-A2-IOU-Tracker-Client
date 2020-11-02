@@ -3,7 +3,6 @@ import RequestCard from '../Components/RequestCard';
 import requestsData from '../requestsFakeData';
 import Search from '../Components/Search';
 import Loader from '../Components/Loader';
-import { useAxios } from '../Hooks/HttpRequestMainServer';
 
 /**
  * Component used to display the home page.

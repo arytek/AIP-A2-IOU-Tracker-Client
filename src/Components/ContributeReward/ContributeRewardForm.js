@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 
 function ContributeRewardForm(props) {
   //const [rewards, setRewards] = useState('');

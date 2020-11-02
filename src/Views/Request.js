@@ -1,11 +1,7 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import Loader from '../Components/Loader';
-import RequestCard from '../Components/RequestCard';
 import requestsData from '../requestsFakeData';
 import RequestView from '../Components/RequestView';
-import Requester from '../Components/Requester';
-import requests from '../requestsFakeData';
 import ContributeRewardContainer from '../Components/ContributeReward/ContributeRewardContainer';
 
 /**
@@ -22,12 +18,10 @@ import ContributeRewardContainer from '../Components/ContributeReward/Contribute
   let setRewards = [];
   setRewards.push(currentRequest[1]);
   setRewards.push(localStorage.getItem('ContributeReward'));
-
-  const { id } = useParams();
-
+  
+  let id = currentRequest[1];
   let request = requestsData;
   let content = null;
-  let requestContent = null;
   if (request.error) {
     content = <p>There was an error please refresh or try again later.</p>;
   }
@@ -45,9 +39,9 @@ import ContributeRewardContainer from '../Components/ContributeReward/Contribute
         request={currentRequest[5]}
         reward={
           setRewards.map((item) => (
-              <div>
-                {item}: rewarded by @{currentRequest[7]}
-              </div>
+            <div key={id+=12}>
+              {item}: rewarded by @{currentRequest[7]}
+            </div>
           ))
         }
         notes={currentRequest[6]}

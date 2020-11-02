@@ -1,9 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 
-{
-	/* Specify rewards list */
-}
+/* Specify rewards list */
+
 const lists = [
 	{ id: 1, rewardName: 'Coffee' },
 	{ id: 2, rewardName: 'Chocolate' },
@@ -16,18 +15,18 @@ const lists = [
 ];
 
 function CreateRequest(props) {
-	{
-		/* initial state for creating request */
-	}
+	
+	/* initial state for creating request */
+	
 	const initialState = { description: '', rewardsList: [], note: '' };
 	const [rewardsList, setRewardsList] = useState([]);
 	const [request, setRequest] = useState(initialState);
 	const [requestList, setRequestList] = useState([]);
 	const [selected, setSelected] = useState(0);
 
-	{
-		/* handle for changing color for selected reward */
-	}
+	
+	/* handle for changing color for selected reward */
+	
 	const handleColor = (row) => {
 		setSelected(row.id);
 	};

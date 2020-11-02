@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import requests from '../requestsFakeData';
-import request from '../Views/Request';
 
 function StoreIdInLocalStorage(
   id,

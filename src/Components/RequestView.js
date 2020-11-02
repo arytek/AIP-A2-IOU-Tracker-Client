@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import CreateRequestForm from '../Components/CreateRequestForm';
 
 // request view layout
 function RequestView(props) {
@@ -9,9 +7,9 @@ function RequestView(props) {
       <div className="mb-3 justify-start text-left">
         {/* Reward heading title */}
         <div className="pl-2">
-          <h3 className="font-bold text-xl text-left">
-            <Link>{props.titles}</Link>
-          </h3>
+          <div className="font-bold text-xl text-left">
+            <div>{props.titles}</div>
+          </div>
           <div className="font-light text-xs text-left">
             Added by {props.authors} {props.dateCreateds} - status:{' '}
             {props.status}
@@ -22,14 +20,14 @@ function RequestView(props) {
       {/* Request and rewards */}
       <hr className="w-100 mb-3" />
       <div className="m-2 text-left">
-        <h1>Request</h1>
+        <div>Request</div>
         <div className="italic text-sm" style={{ color: '#595959' }}>
-          <p>{props.request}</p>
+          <div>{props.request}</div>
         </div>
         <div className="my-2">
-          <h1>Rewards</h1>
+          <div>Rewards</div>
           <div className="italic text-sm" style={{ color: '#595959' }}>
-            <p>{props.reward}</p>
+            <div>{props.reward}</div>
           </div>
         </div>
 
@@ -39,9 +37,9 @@ function RequestView(props) {
           {props.contributeButton}
         </div>
         <div className="my-2">
-          <h1>Notes</h1>
+          <div>Notes</div>
           <div className="italic text-sm" style={{ color: '#595959' }}>
-            <p> {props.notes} </p>
+            <div> {props.notes} </div>
           </div>
         </div>
 

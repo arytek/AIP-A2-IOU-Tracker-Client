@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import CreateRequest from './CreateRequest';
-import ContributeReward from './ContributeReward/ContributeRewardForm';
 import { useTransition, animated } from 'react-spring';
 
 function CreateRequestForm(props) {
