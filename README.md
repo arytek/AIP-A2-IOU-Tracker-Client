@@ -1,4 +1,4 @@
-# Favoura | IOU Tracker Web App Client
+# Favoura | IOU Favour Tracker Web App Client
 ## Table Of Contents
 
 * [About the Project](#about-the-project)
@@ -6,7 +6,6 @@
 * [Installation and Usage](#installation-and-usage)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-  * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [License](#license)
 * [Acknowledgements](#acknowledgements)
@@ -15,30 +14,36 @@
 
 ![Screen Shot](images/screenshot.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Favoura is a tracking system for “IOU”s or “favours”. An “IOU” is an abbreviation of "I owe you", and it is an informal acknowledgement of a debt or favor owed. This system allows groups or teams to log in and record the favors that they owe to each other. In addition to recording favors, Favoura allows users to post public requests with an offer to provide a favor (the reward), as well as view a leaderboard to see who is fulfilling the most requests.
 
 ## Built With
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+The following technologies were used to build this web app:
+* React.
+* TailwindCSS.
+* AWS Cognito.
 
 ## Application Contents
 
-### ReqHandlers Directory
+### Src Directory
 <ul> 
-  <li><b>GET-Handlers</b> - A folder containing the GET handlers used in the app.</li>
-  <li><b>POST-Handlers</b> - A folder containing the POST handlers used in the app.</li>
+  <li><b>Components</b> - A directory containing the React components used in this web app.</li>
+  <li><b>Contexts</b> - A directory containing the React contexts used in this web app.</li>
+ <li><b>Hooks</b> - A directory containing the React hooks used in this web app.</li>
+ <li><b>Views</b> - A directory containing the the main React pages used in this web app.</li>
+ <li><b>Utility</b> - A directory containing commonly used functionality used in this web app.</li>
 </ul>
 
 ### Utility Directory
 <ul>
-  <li><b>appUtil.js</b> - Provides functionality used throughout the code base, such as ________________</li>
+  <li><b>ErrorMessageUI.js</b> - Gets fed error codes, and outputs the text that is intended to be  displayed to the user. </li>
+ <li><b>UserPool.js</b> - Contains user pool data intended to be used for connecting to our AWS Cognito authentication service.</li>
+ <li><b>Util.js</b> - Containing commonly used functions used in this web app.</li>
 </ul>
   
 ### App Working Directory
 <ul>
-  <li><b>Node-Modules</b> - Generated when running 'npm install'. A folder containing the npm module dependencies used by the application.</li>
-  <li><b>server.js</b> - The main server file that utilises Express to start a web server.</li>
+  <li><b>node-modules</b> - Generated when running 'npm install'. A directory containing the NPM package dependencies used by this server.</li>
   <li><b>package.json</b> - Package.json file used with NPM.</li>
   <li><b>package-lock.json</b> - Package-lock.json file used with NPM.</li>
 </ul>
@@ -47,9 +52,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
-* npm
+* Node.JS
+* NPM
 
 ```sh
 npm install npm@latest -g
@@ -58,19 +62,14 @@ npm install npm@latest -g
 ### Installation
 <ol>
   <li>Clone this repository.</li>
-  <li>In the newly cloned repository, open your command line and run the 'npm install' command to download the required modules.</li>
-  <li>Run the 'npm run server' command to run the server.</li>
-  <li>The server is now ready. Try out the following unauthenticated REST requests below.</li>
-  <li>To test out the authenticated routes, run the server alongside the Favoura front-end web application and then generate an access token by logging in.</li>
+  <li>In the newly cloned repository, open your command line and run the 'npm install' command to download the required packages.</li>
+  <li>Run the <b>'npm start'</b> command to run the server. (see the package.json for other scripts).</li> 
+  <li>The Favoura front-end client is now ready. Try out the following unauthenticated REST requests below.</li>
 </ol>
 
-### Usage
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    
 ## Roadmap
 
-See the [open issues](https://github.com/ShaanCoding/ReadME-Generator/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/AryanNateq/AIP-A2-IOU-Tracker-Server/issues) for a list of proposed features (and known issues).
 
 ## License
 
