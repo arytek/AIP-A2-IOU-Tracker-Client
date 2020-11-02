@@ -10,8 +10,8 @@ import { useAxios } from '../Hooks/HttpRequestMainServer';
  * their existing favours and requests, plus other things.
  */
 function Profile(props) {
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const { getSession, logout } = useContext(AccountContext);
+  const [, setLoggedIn] = useState(false);
+  const { getSession } = useContext(AccountContext);
 
   // Check if a user login session exists.
   useEffect(() => {

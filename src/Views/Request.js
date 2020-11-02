@@ -1,6 +1,6 @@
 import React from 'react';
 import Loader from '../Components/Loader';
-import requestsData from '../requestsFakeData';
+import requestsData from '../requestsTestData';
 import RequestView from '../Components/RequestView';
 import ContributeRewardContainer from '../Components/ContributeReward/ContributeRewardContainer';
 
@@ -9,7 +9,7 @@ import ContributeRewardContainer from '../Components/ContributeReward/Contribute
  * Component used to display the individual request page.
  */
 
- function Request() {
+function Request() {
   //  get request data from local storage
   let storageData = localStorage.getItem('request');
   let currentRequest = storageData.split(',');
@@ -18,7 +18,7 @@ import ContributeRewardContainer from '../Components/ContributeReward/Contribute
   let setRewards = [];
   setRewards.push(currentRequest[1]);
   setRewards.push(localStorage.getItem('ContributeReward'));
-  
+
   let id = currentRequest[1];
   let request = requestsData;
   let content = null;
@@ -37,18 +37,17 @@ import ContributeRewardContainer from '../Components/ContributeReward/Contribute
         dateCreateds={currentRequest[3]}
         status={currentRequest[4]}
         request={currentRequest[5]}
-        reward={
-          setRewards.map((item) => (
-            <div key={id+=12}>
-              {item}: rewarded by @{currentRequest[7]}
-            </div>
-          ))
-        }
+        reward={setRewards.map((item) => (
+          <div key={(id += 12)}>
+            {item}: rewarded by @{currentRequest[7]}
+          </div>
+        ))}
         notes={currentRequest[6]}
         contributeButton={
           <div className="text text-center">
-            <ContributeRewardContainer className="" 
-              buttonName = "Contribute a reward"
+            <ContributeRewardContainer
+              className=""
+              buttonName="Contribute a reward"
             />
           </div>
         }
@@ -60,7 +59,6 @@ import ContributeRewardContainer from '../Components/ContributeReward/Contribute
     <div className="mb-4 rounded-lg overflow-hidden m-4 width: auto; mr-48">
       {content}
     </div>
-    
   );
 }
 export default Request;

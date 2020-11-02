@@ -5,21 +5,7 @@ import { useTransition, animated } from 'react-spring';
 function CreateRequestForm(props) {
   const [showRequestForm, setShowRequestForm] = useState(false);
 
-  const submitForm = (request, requestList) => {
-    let body = {
-      creator_id: props.auth_uuid,
-      requestStatus: 'UNFULFILLED',
-      description: request.description,
-      date: new Date(),
-      notes: request.notes,
-      rewards: [
-        {
-          reward: requestList[0],
-          rewarder: props.auth_uuid,
-        },
-      ],
-    };
-  };
+  const submitForm = (request, requestList) => {};
 
   const maskTransitions = useTransition(showRequestForm, null, {
     from: { position: 'absolute', opacity: 0 },

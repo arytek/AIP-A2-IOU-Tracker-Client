@@ -5,7 +5,7 @@ import { AccountContext } from '../Contexts/Accounts';
 
 function SideMenu() {
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const { getSession, logout } = useContext(AccountContext);
+  const { getSession } = useContext(AccountContext);
 
   // Check if a user login session exists.
   useEffect(() => {
