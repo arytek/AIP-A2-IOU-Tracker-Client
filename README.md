@@ -38,7 +38,7 @@ The following technologies were used to build this web app:
 <ul>
   <li><b>ErrorMessageUI.js</b> - Gets fed error codes, and outputs the text that is intended to be  displayed to the user. </li>
  <li><b>UserPool.js</b> - Contains user pool data intended to be used for connecting to our AWS Cognito authentication service.</li>
- <li><b>Util.js</b> - Containing commonly used functions used in this web app.</li>
+ <li><b>Util.js</b> - Contains commonly used functions used throughout this web app.</li>
 </ul>
   
 ### App Working Directory
