@@ -63,7 +63,7 @@ npm install npm@latest -g
 <ol>
   <li>Clone this repository.</li>
   <li>In the newly cloned repository, open your command line and run the 'npm install' command to download the required packages.</li>
-  <li>Run the <b>'npm start'</b> command to run the server. (see the package.json for other scripts).</li> 
+  <li>Run the <b>'npm start'</b> command to run the server. (see the package.json for other scripts available to run).</li> 
   <li>The Favoura front-end client is now ready. Try out the following unauthenticated REST requests below.</li>
 </ol>
 
